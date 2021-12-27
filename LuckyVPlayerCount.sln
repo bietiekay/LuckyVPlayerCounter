@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuckyVPlayerCount", "LuckyVPlayerCount.csproj", "{485B118C-9E42-4D06-9F9D-2478A8A4D7C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{485B118C-9E42-4D06-9F9D-2478A8A4D7C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{485B118C-9E42-4D06-9F9D-2478A8A4D7C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{485B118C-9E42-4D06-9F9D-2478A8A4D7C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{485B118C-9E42-4D06-9F9D-2478A8A4D7C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {65FC3A2E-8749-4CA2-969C-F50C294A548B}
+	EndGlobalSection
+EndGlobal
