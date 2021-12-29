@@ -38,6 +38,7 @@ namespace LuckyVPlayerCount
             this.fontDialog2 = new System.Windows.Forms.FontDialog();
             this.button2 = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // playercount
@@ -83,22 +84,35 @@ namespace LuckyVPlayerCount
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(0, 306);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(348, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Icons made by https://www.freepik.com from https://www.flaticon.com/";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(721, 319);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.playercount);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LuckyV Spielerzähler";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -111,6 +125,7 @@ namespace LuckyVPlayerCount
         private System.Windows.Forms.FontDialog fontDialog2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Label label1;
     }
 }
 
