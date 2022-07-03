@@ -1,8 +1,10 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -63,11 +65,12 @@ namespace LuckyVPlayerCount
         public void Timer_Tick(object sender, EventArgs e)
         {
             // get player count
-            // https://api.altstats.net/api/v1/server/998/
+            // https://api.altstats.net/api/v1/server/998/ (obsolete)
+            // https://api.altv.mp/servers/list
 
             try
             {
-                var remoteUri = new Uri("https://api.altstats.net/api/v1/server/998/");
+                var remoteUri = new Uri("https://api.altv.mp/servers/list");
 
                 var http = new Fetch { Retries = 5, RetrySleep = 500, Timeout = 5000 };
                 http.Load(remoteUri.AbsoluteUri);
@@ -75,16 +78,18 @@ namespace LuckyVPlayerCount
                 {
                     return;
                 }
-                string data = Encoding.UTF8.GetString(http.ResponseData);
-
+                string data = "{\"item\": "+Encoding.UTF8.GetString(http.ResponseData)+"}";
 
                 dynamic stuff = JObject.Parse(data);
 
-                
-                playercount.Text = stuff.Players.ToString();
-
-                File.WriteAllText("playercount.txt",stuff.Players.ToString());
-
+                foreach(dynamic item in stuff.item)
+                {
+                    if (item.id.ToString() == "bb7228a0d366fc575a5682a99359424f")
+                    {
+                        playercount.Text = item.players.ToString();
+                    }
+                } 
+                File.WriteAllText("playercount.txt",playercount.Text);
 
             } catch(Exception)
             {
