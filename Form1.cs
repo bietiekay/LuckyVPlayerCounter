@@ -70,7 +70,7 @@ namespace LuckyVPlayerCount
 
             try
             {
-                var remoteUri = new Uri("https://api.altv.mp/servers/list");
+                var remoteUri = new Uri("https://api.alt-mp.com/servers/EnLAA0O");
 
                 var http = new Fetch { Retries = 5, RetrySleep = 500, Timeout = 5000 };
                 http.Load(remoteUri.AbsoluteUri);
@@ -78,17 +78,20 @@ namespace LuckyVPlayerCount
                 {
                     return;
                 }
-                string data = "{\"item\": "+Encoding.UTF8.GetString(http.ResponseData)+"}";
+                string data = Encoding.UTF8.GetString(http.ResponseData);//"{\"item\": "+Encoding.UTF8.GetString(http.ResponseData)+"}";
 
-                dynamic stuff = JObject.Parse(data);
+                //dynamic stuff = JObject.Parse(data);
 
-                foreach(dynamic item in stuff.item)
-                {
-                    if (item.id.ToString() == "bb7228a0d366fc575a5682a99359424f")
-                    {
-                        playercount.Text = item.players.ToString();
-                    }
-                } 
+                ServerInfo serverInfo = JsonConvert.DeserializeObject<ServerInfo>(data);
+                playercount.Text = serverInfo.PlayersCount.ToString();
+
+                /*                foreach (dynamic item in stuff.item)
+                                {
+                                    if (item.id.ToString() == "bb7228a0d366fc575a5682a99359424f")
+                                    {
+                                        playercount.Text = item.players.ToString();
+                                    }
+                                } */
                 File.WriteAllText("playercount.txt",playercount.Text);
 
             } catch(Exception)
